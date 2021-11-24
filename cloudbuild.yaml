@@ -25,6 +25,8 @@ steps:
       - "asia-northeast1"
       - "--platform"
       - "managed"
+      - "--port"
+      - "8080"
     timeout: 1200s
 images:
   - "gcr.io/$PROJECT_ID/dsg:$COMMIT_SHA"
