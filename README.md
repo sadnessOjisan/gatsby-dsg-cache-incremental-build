@@ -1,5 +1,7 @@
 # dsg example
 
+start
+
 ```
 npm run build && npm run serve
 ```
