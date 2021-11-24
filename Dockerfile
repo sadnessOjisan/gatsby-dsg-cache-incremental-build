@@ -2,13 +2,12 @@ FROM node:16
 
 WORKDIR /home/node/app
 
-COPY . .
+COPY . /home/node/app
 
-RUN npm install && \
-    npm run build
+RUN npm install
+
+RUN npm run build
 
 EXPOSE 8080
 
-ENV PORT 8080
-
-CMD [ "npm", "run", "serve" ]
+CMD ["npm", "run", "serve"]
