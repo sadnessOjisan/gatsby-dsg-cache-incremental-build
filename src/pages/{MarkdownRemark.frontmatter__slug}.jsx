@@ -7,6 +7,7 @@ export default function Template({
   const { frontmatter, html } = markdownRemark;
   return (
     <div className="blog-post-container">
+      build time: {new Date().toISOString()}
       <div className="blog-post">
         <h1>{frontmatter.title}</h1>
         <h2>{frontmatter.date}</h2>
