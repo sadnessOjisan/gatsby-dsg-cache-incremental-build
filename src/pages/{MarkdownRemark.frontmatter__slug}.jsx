@@ -5,9 +5,11 @@ export default function Template({
 }) {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark;
+  const timestr = new Date().toISOString();
+  console.log("timestr: ", timestr);
   return (
     <div className="blog-post-container">
-      build time: {new Date().toISOString()}
+      build time: {timestr}
       <div className="blog-post">
         <h1>{frontmatter.title}</h1>
         <h2>{frontmatter.date}</h2>
