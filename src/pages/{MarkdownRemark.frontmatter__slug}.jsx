@@ -1,11 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
 export default function Template({
-  data, // this prop will be injected by the GraphQL query below.
+  data, // this prop will be injected by the GraphQL query below.,
+  serverData,
 }) {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark;
-  const timestr = new Date().toISOString();
+  const { timestr } = serverData;
   console.log("timestr: ", timestr);
   return (
     <div className="blog-post-container">
@@ -44,9 +45,11 @@ export async function config() {
 }
 
 export async function getServerData(context) {
+  const timestr = new Date().toISOString();
+  console.log("timestr server", timestr);
   return {
     status: 200, // The HTTP status code that should be returned
-    props: {}, // Will be passed to the page component as "serverData" prop
+    props: { timestr }, // Will be passed to the page component as "serverData" prop
     headers: {
       "Cache-Control": "max-age=10000",
     }, // HTTP response headers for this page
