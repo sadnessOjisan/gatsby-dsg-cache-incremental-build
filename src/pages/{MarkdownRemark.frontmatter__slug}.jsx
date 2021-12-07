@@ -51,7 +51,7 @@ export async function getServerData(context) {
     status: 200, // The HTTP status code that should be returned
     props: { timestr }, // Will be passed to the page component as "serverData" prop
     headers: {
-      "Cache-Control": "max-age=10000",
+      "Cache-Control": "public, max-age=10",
     }, // HTTP response headers for this page
   };
 }
